@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Доска информации</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <header class="topbar">
+    <img class="logo-img" src="logo.jpg" alt="Логотип">
+    <button class="home-link" id="homeBtn">ДОСКА ИНФОРМАЦИИ</button>
+    <div class="datetime">
+      <div class="time" id="clock">11:30</div>
+      <div class="date" id="dateText">29 апреля<br>среда</div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Главная -->
+    <section class="page active home page-bg" id="homePage" style="--bg: url('fon/main1.jpg')">
+      <div class="home-grid">
+        <button class="menu-card" data-page="schedulePage">
+          <span class="icon">📅</span>
+          <span>Расписание</span>
+        </button>
+
+        <button class="menu-card" data-page="galleryPage">
+          <span class="icon">🖼️</span>
+          <span>Галерея работ<br>студентов</span>
+        </button>
+
+        <button class="menu-card" data-page="navigationPage">
+          <span class="icon">🧭</span>
+          <span>Навигация</span>
+        </button>
+
+        <button class="menu-card" data-page="teachersPage">
+          <span class="icon">👩‍🏫</span>
+          <span>Преподаватели</span>
+        </button>
+
+        <button class="menu-card" data-page="newsPage">
+          <span class="icon">📢</span>
+          <span>Объявления<br>и новости</span>
+        </button>
+
+      </div>
+    </section>
+
+    <!-- Расписание -->
+    <section class="page page-bg" id="schedulePage" style="--bg: url('fon/fon1.jpg')">
+      <button class="back-btn" onclick="openPage('homePage')">← Назад</button>
+      <div class="layout schedule-layout">
+        <aside class="side-panel glass">
+          <h1>Расписание</h1>
+
+          <label for="groupSelect">Группа</label>
+          <select id="groupSelect">
+            <option>Д-22-01</option>
+            <option>КС-25-01</option>
+            <option>ИС-25-01</option>
+            <option>ИС-25-02</option>
+          </select>
+
+          <label for="dateInput">Дата</label>
+          <input type="date" id="dateInput" value="2026-04-29" />
+        </aside>
+
+        <div class="table-card glass">
+          <table>
+            <thead>
+              <tr>
+                <th>Пара</th>
+                <th>Дисциплина</th>
+                <th>Кабинет</th>
+              </tr>
+            </thead>
+            <tbody id="scheduleBody"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- Навигация -->
+    <section class="page page-bg" id="navigationPage" style="--bg: url('fon/fon2.jpg')">
+      <button class="back-btn" onclick="openPage('homePage')">← Назад</button>
+      <div class="layout navigation-layout">
+        <div>
+          <h1 class="page-title">Навигация</h1>
+          <p class="subtitle">План 1 корпуса</p>
+
+          <div class="map-wrapper">
+            <img src="plan.jpg" class="map-image">
+          </div>
+
+          <!--
+        <div class="legend glass">
+          <h2>Условные обозначения</h2>
+          <p>🚪 Аудитории</p>
+          <p>🧑‍💼 Кабинеты</p>
+          <p>↕️ Лестницы</p>
+          <p>🚻 Туалеты</p>
+          <p><span class="dot"></span> Вы находитесь здесь</p>
+        </div> -->
+        </div>
+    </section>
+
+    <!-- Новости -->
+    <section class="page page-bg" id="newsPage" style="--bg: url('fon/fon3.png')">
+      <button class="back-btn" onclick="openPage('homePage')">← Назад</button>
+      <div class="content-wrap">
+        <h1 class="page-title">Объявления и новости</h1>
+        
+      </div>
+    </section>
+
+    <!-- Галерея -->
+    <section class="page page-bg" id="galleryPage" style="--bg: url('fon/fon4.jpg')">
+      <button class="back-btn" onclick="openPage('homePage')">← Назад</button>
+      <div class="content-wrap">
+        <h1 class="page-title center">Галерея работ студентов</h1>
+        <div class="gallery-grid">
+          <div class="gallery-item">
+            <img src="gallery/g1.jpg" alt="Работа студента" />
+          </div>
+          <div class="gallery-item">
+            <img src="gallery/g2.jpg" alt="Работа студента" />
+          </div>
+          <div class="gallery-item">
+            <img src="gallery/g3.jpg" alt="Работа студента" />
+          </div>
+          <div class="gallery-item">
+            <img src="gallery/g4.jpg" alt="Работа студента" />
+          </div>
+          <div class="gallery-item">
+            <img src="gallery/g5.jpg" alt="Работа студента" />
+          </div>
+          <div class="gallery-item">
+            <img src="gallery/g6.jpg" alt="Работа студента" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Преподаватели -->
+    <section class="page page-bg" id="teachersPage" style="--bg: url('fon/fon5.jpg')">
+      <button class="back-btn" onclick="openPage('homePage')">← Назад</button>
+      <div class="teacher-wrap">
+        <h1 class="page-title">Преподаватели</h1>
+        <div class="teacher-select glass">
+          <select id="teacherSelect">
+            <option value="0">Любченко Елена Александровна</option>
+            <option value="1">Агапова Алла Владимировна</option>
+            <option value="2">Ахтямов Ришат Равилевич</option>
+            <option value="3">Баранов Николай Иванович</option>
+            <option value="4">Бекишев Михаил Григорьевич</option>
+            <option value="5">Варвик Эллен Вальтеровна</option>
+            <option value="6">Венкова Лариса Владимировна</option>
+            <option value="7">Видинеев Дмитрий Юрьевич</option>
+            <option value="8">Глазова Ирина Владимировна</option>
+            <option value="9">Горбунова Валентина Александровна</option>
+            <option value="10">Горбунова Людмила Петровна</option>
+            <option value="11">Горлова Наталья Викторовна</option>
+            <option value="12">Днепровская Галина Михайловна</option>
+          </select>
+        </div>
+
+        <article class="teacher-card glass" id="teacherCard">
+          <h2>Любченко Елена Александровна</h2>
+          <p><b>Дисциплина:</b> Русский язык и литература</p>
+          <p><b>Кабинет:</b> 214</p>
+          <p><b>Время консультаций:</b> среда, 14:00–15:00</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
