@@ -667,6 +667,10 @@ th:nth-child(3) {
     font-size: 22px;
     padding: 20px 30px;
   }
+  
+  td:nth-child(2) {
+    padding-left: 65px;
+  }
 
   /* Навигация */
   .map-wrapper {
