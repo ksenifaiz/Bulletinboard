@@ -28,7 +28,7 @@ input {
 .topbar {
   height: var(--header-height);
   display: grid;
-  grid-template-columns: 180px 1fr 260px;
+  grid-template-columns: 180px 1fr auto;
   align-items: center;
   gap: 20px;
   padding: 0 34px;
